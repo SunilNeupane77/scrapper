@@ -1,0 +1,25 @@
+===========================================
+AUDIO BEE PRACTICAL TEST
+Candidate: Sunil Neupane
+Date: 2026-05-13
+Tool Used: Cursor IDE (Free Plan)
+===========================================
+PROMPT 1 - Project Skeleton
+Set up an ekantipur-scraper Python project with uv, Playwright + Chromium, and a scraper.py entry point that loads https://ekantipur.com and saves structured results to output.json using UTF-8 and ensure_ascii=False for Nepali text.
+===========================================
+PROMPT 2 - Entertainment Extraction  
+From the homepage, open the मनोरञ्जन section, wait for network idle, scroll to wake lazy images, and extract the top five dated entertainment stories into objects with title, image_url (absolute https), category (default मनोरञ्जन when missing), and author (null when absent). Prefer Kantipur listing markup such as div.category-inner-wrapper and .category-image img; fall back to generic figure/img extraction with data-src for lazy loading.
+===========================================
+PROMPT 3 - Cartoon Extraction
+Return to the homepage, scroll through lazy sections, locate the कार्टुन block (.section-news / .cartoon-slider), pick the active swiper slide image (data-src/src), use the image alt text as the cartoon title when present, and capture cartoonist/author only when a dedicated byline node exists; otherwise author=null.
+===========================================
+PROMPT 4 - Error Handling
+Wrap navigation and per-field extraction in try/except, avoid bare failures leaking tracebacks to stdout, validate counts and URLs before saving, launch Chromium headless with realistic viewport/user-agent and sandbox-friendly args, and never leave page.pause() in submission code.
+===========================================
+PROMPT 5 - Final Polish
+Add validate_output with explicit checks (five articles, absolute image URLs, cartoon keys), terminal banners matching the assessment format, OUTPUT_FILE via os.path.join(dirname(__file__), "output.json"), helper utilities clean_text and make_absolute_url, record recording.mp4 for the viewport demo, and keep prompts.txt plus check.py for automated verification.
+===========================================
+PROMPT 6 - Debugging 
+Temporarily switch scraper launch to headed Chromium locally to confirm selectors against live DOM, verify thumb.php image URLs resolve, and revert to headless=True before packaging the zip without debug helpers.
+===========================================
+===========================================
