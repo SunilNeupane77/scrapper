@@ -35,7 +35,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 Create the environment and install dependencies:
 
 ```bash
-cd ekantipur-scraper
+cd scrapper
 uv sync
 uv run playwright install chromium
 ```
