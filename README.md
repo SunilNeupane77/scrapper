@@ -102,29 +102,3 @@ uv run python record_scrape_demo.py
 
 This records the viewport (entertainment page, then homepage with scroll) and writes `recording.mp4` in the project root. It does not replace manual DevTools inspection; it is a short demo clip for reviewers.
 
-## Debugging in a visible browser
-
-For local debugging only, you may temporarily change the launch call in `scraper.py` from `headless=True` to `headless=False`, run the scraper, then **restore** `headless=True` before submission. Do not commit or submit with headed mode unless the assessor asks for it.
-
-## DOM notes (maintenance)
-
-The live site uses listing rows such as `div.category-inner-wrapper` with images under `.category-image` (often `thumb.php?src=...` URLs). Thumbnails may use lazy attributes (`data-src`). The cartoon block is tied to a heading link to `/cartoon` and a `.cartoon-slider` carousel. If the layout changes, update selectors in `scraper.py` and re-run `check.py`.
-
-## Packaging for submission
-
-Follow the instructions from the assessment (zip contents and exclusions). Typical Linux/macOS example (adjust excludes to match the brief):
-
-```bash
-cd ..
-zip -r ekantipur-scraper.zip ekantipur-scraper/ \
-  --exclude "ekantipur-scraper/.venv/*" \
-  --exclude "ekantipur-scraper/__pycache__/*"
-```
-
-Replace `[YOUR NAME]` and the date in `prompts.txt` before zipping.
-
-## License / ethics
-
-This tool is for educational or assigned evaluation use. Respect ekantipur.com terms of service, rate limits, and robots policy; do not overload their servers or redistribute full article body text without permission.
-# scrapper
-# scrapper
